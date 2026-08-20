@@ -7,6 +7,21 @@ class Node
     Node* next;
 
 };
+void delteAtLast(Node* head)
+{
+
+    Node* temp=head;
+   while(temp->next->next!=NULL)
+   {
+    temp=temp->next;
+   }
+   delete temp->next->next;
+   temp->next=NULL;
+  
+
+
+}
+
 int main()
 {
     Node* node1=new Node();
@@ -27,6 +42,15 @@ int main()
     Node* head=node1;
     Node* temp=head;
 cout<<"Original list:";
+       while(temp!=NULL)
+       {
+        cout<<temp->data<<"  ";
+        temp=temp->next;
+
+       }
+       delteAtLast(head);
+       cout<<"After deletion:";
+       temp=head;
        while(temp!=NULL)
        {
         cout<<temp->data<<"  ";
